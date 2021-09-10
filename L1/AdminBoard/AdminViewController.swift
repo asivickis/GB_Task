@@ -7,8 +7,9 @@
 
 import UIKit
 
-class AdminViewController:  UIViewController {
+class AdminViewController:  UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
 }
