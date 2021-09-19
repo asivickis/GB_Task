@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "AdminBoard", bundle: nil)
         let viewController = storyBoard.instantiateInitialViewController()
         if let viewController = viewController as? AdminViewController {
+            viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: true)
         }
     }
