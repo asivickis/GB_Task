@@ -25,7 +25,7 @@ class subAdminViewController: UIViewController {
     private func showContactBoard() {
         let storyBoard = UIStoryboard(name: "ContactBoard", bundle: nil)
         let viewController = storyBoard.instantiateInitialViewController()
-        if let viewController = viewController as? NavigationContactController {
+        if let viewController = viewController as? ContactViewController {
             self.present(viewController, animated: true)
         }
     }

@@ -53,6 +53,14 @@ class ContactViewController: UIViewController {
         
     }
     
+    private func show_details() {
+        let storyBoard = UIStoryboard(name: "DetailedBoard", bundle: nil)
+        let viewController = storyBoard.instantiateInitialViewController()
+        if let viewController = viewController as? DetailedViewController {
+            self.present(viewController, animated: true)
+        }
+    }
+    
     //variable for contacts and func to get them
     /*
     var contacts = [FetchedContacts]()
@@ -87,20 +95,6 @@ class ContactViewController: UIViewController {
 
 }
 
-class NavigationContactController : UINavigationController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-}
-
-class DetailsController : UIViewController {
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-}
 
 extension ContactViewController: UITableViewDataSource {
     
@@ -126,16 +120,9 @@ extension ContactViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print(indexPath.row)
-        /*
-        let storyBoard = UIStoryboard(name: "DetailedBoard", bundle: nil)
-        let viewController = storyBoard.instantiateInitialViewController()
-        if let viewController = viewController as? DetailedViewController {
-            self.present(viewController, animated: true)
-        }
-        */
         
-        let newViewController = DetailsController()
-        self.navigationController?.pushViewController(newViewController, animated: true)
+        show_details()
+        
     }
-    
 }
+
