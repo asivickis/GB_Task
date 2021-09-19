@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Weather-->
+        <!--Contacts-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="subAdminViewController" customModule="L1" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1KE-Mt-8vc" userLabel="ContactsView">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="176" y="433" width="62" height="30"/>
+                                <state key="normal" title="Contacts"/>
                                 <connections>
                                     <action selector="contactBoardView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rVE-5G-AGA"/>
                                 </connections>
@@ -31,7 +31,7 @@
                             <constraint firstItem="1KE-Mt-8vc" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="sp5-DM-yiv"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Weather" image="icloud" catalog="system" id="oLB-0c-qfX"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="person" catalog="system" id="oLB-0c-qfX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,7 +121,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icloud" catalog="system" width="128" height="88"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="terminal" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

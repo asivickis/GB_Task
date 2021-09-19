@@ -26,6 +26,11 @@ struct myContacts {
     var number : String
 }
 
+class NavContactViewController: UINavigationController{
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
 
 class ContactViewController: UIViewController {
     
@@ -41,7 +46,7 @@ class ContactViewController: UIViewController {
     }
     
     var contacts = [myContacts]()
-
+    var sorted_contacts = [myContacts]()
 
     
     private func appendContacts() {
@@ -50,14 +55,20 @@ class ContactViewController: UIViewController {
         contacts.append(myContacts(firstName: "Aleksandrs", lastName: "Jablonev", number: "8473205"))
         contacts.append(myContacts(firstName: "Maria", lastName: "Cicvarkina", number: "2956734"))
         contacts.append(myContacts(firstName: "Jura", lastName: "Dudj", number: "9123758"))
-        
+        sorted_contacts = contacts.sorted { $0.firstName < $1.firstName }
     }
     
-    private func show_details() {
+    private func show_details(indexPath : IndexPath) {
         let storyBoard = UIStoryboard(name: "DetailedBoard", bundle: nil)
         let viewController = storyBoard.instantiateInitialViewController()
         if let viewController = viewController as? DetailedViewController {
-            self.present(viewController, animated: true)
+            let name = sorted_contacts[indexPath.row].firstName
+            let surname = sorted_contacts[indexPath.row].lastName
+            let number = sorted_contacts[indexPath.row].number
+            viewController.name_surname = "\(name + " " + surname)"
+            viewController.phone_number = "\(number)"
+            viewController.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
     
@@ -111,7 +122,6 @@ extension ContactViewController: UITableViewDataSource {
 
 extension ContactViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let sorted_contacts = contacts.sorted { $0.firstName < $1.firstName }
         cell.textLabel?.text = sorted_contacts[indexPath.row].firstName
         cell.detailTextLabel?.text = sorted_contacts[indexPath.row].lastName
     }
@@ -120,8 +130,8 @@ extension ContactViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print(indexPath.row)
-        
-        show_details()
+        //print(contacts[indexPath.row].lastName)
+        self.show_details(indexPath: indexPath)
         
     }
 }
