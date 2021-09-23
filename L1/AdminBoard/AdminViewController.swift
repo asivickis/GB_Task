@@ -41,23 +41,34 @@ class logo: UIView {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        
         guard let context = UIGraphicsGetCurrentContext() else { return }
-        context.setStrokeColor(UIColor.red.cgColor)
+        self.draw(context)
+    }
+     
+    private func draw(_ context: CGContext) {
+        context.setStrokeColor(UIColor.white.cgColor)
+        //why fill color not working ?
+        context.setFillColor(UIColor.white.cgColor)
+        let starLayer = CAShapeLayer()
         let starPath = UIBezierPath()
-        starPath.move(to: CGPoint(x: 200, y: 120))
-        starPath.addLine(to: CGPoint(x: 130, y: 240))
-        starPath.addLine(to: CGPoint(x: 30, y: 240))
-        starPath.addLine(to: CGPoint(x: 100, y: 300))
-        starPath.addLine(to: CGPoint(x: 50, y: 400))
-        starPath.addLine(to: CGPoint(x: 200, y: 320))
-        starPath.addLine(to: CGPoint(x: 350, y: 400))
-        starPath.addLine(to: CGPoint(x: 300, y: 300))
-        starPath.addLine(to: CGPoint(x: 370, y: 240))
-        starPath.addLine(to: CGPoint(x: 270, y: 240))
+        starPath.move(to: .init(x: 200, y: 120))
+        starPath.addLine(to: .init(x: 130, y: 240))
+        starPath.addLine(to: .init(x: 30, y: 240))
+        starPath.addLine(to: .init(x: 100, y: 300))
+        starPath.addLine(to: .init(x: 50, y: 400))
+        starPath.addLine(to: .init(x: 200, y: 320))
+        starPath.addLine(to: .init(x: 350, y: 400))
+        starPath.addLine(to: .init(x: 300, y: 300))
+        starPath.addLine(to: .init(x: 370, y: 240))
+        starPath.addLine(to: .init(x: 270, y: 240))
         starPath.close()
         starPath.stroke()
- 
+        starLayer.path = starPath.cgPath
+        self.layer.mask = starLayer
+
     }
+
 
 
 }
