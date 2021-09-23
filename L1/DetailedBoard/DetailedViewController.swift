@@ -7,7 +7,7 @@
 
 import UIKit
 
-//Хочу в каждую colletion view засунуть инфу с таблицы 
+//Хочу в каждую colletion view засунуть инфу с таблицы
 
 class DetailedViewController : UIViewController {
     
