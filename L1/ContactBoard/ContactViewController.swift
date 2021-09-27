@@ -47,7 +47,8 @@ class ContactViewController: UIViewController {
     
     var contacts = [myContacts]()
     var sorted_contacts = [myContacts]()
-
+    var contacts_dictionary : [String : [String]] = [:]
+    
     
     private func appendContacts() {
         
@@ -55,7 +56,23 @@ class ContactViewController: UIViewController {
         contacts.append(myContacts(firstName: "Aleksandrs", lastName: "Jablonev", number: "8473205"))
         contacts.append(myContacts(firstName: "Maria", lastName: "Cicvarkina", number: "2956734"))
         contacts.append(myContacts(firstName: "Jura", lastName: "Dudj", number: "9123758"))
+        contacts.append((myContacts(firstName: "Jana", lastName: "Sicilijska", number: "8533274")))
+        contacts.append((myContacts(firstName: "Michael", lastName: "McMaster", number: "93342567")))
         sorted_contacts = contacts.sorted { $0.firstName < $1.firstName }
+        
+        
+        //Creating dictionary
+        var contacts_firstName : [String] = []
+        for i in sorted_contacts {
+            contacts_firstName.append(i.firstName)
+        }
+        contacts_dictionary = contacts_firstName.reduce(into: [String:[String]]()) { result, element in
+            guard let first = element.first else { return }
+            let initial = String(first)
+            result[initial] = (result[initial] ?? []) + [element]
+        }
+        print(contacts_dictionary)
+        
     }
     
     private func show_details(indexPath : IndexPath) {
@@ -71,6 +88,7 @@ class ContactViewController: UIViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
+    
     
     //variable for contacts and func to get them
     /*
@@ -109,8 +127,14 @@ class ContactViewController: UIViewController {
 
 extension ContactViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return contacts_dictionary.keys.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contacts.count
+        //Ne ponimaju po4emu tut 3 vse vremja i kak pravilno vivezti iz dictionary
+        return self.contacts_dictionary.values.count
+        
     }
     
     
@@ -121,6 +145,7 @@ extension ContactViewController: UITableViewDataSource {
 }
 
 extension ContactViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.textLabel?.text = sorted_contacts[indexPath.row].firstName
         cell.detailTextLabel?.text = sorted_contacts[indexPath.row].lastName
@@ -129,7 +154,7 @@ extension ContactViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print(indexPath.row)
+        //print(indexPath.row)
         //print(contacts[indexPath.row].lastName)
         self.show_details(indexPath: indexPath)
         
