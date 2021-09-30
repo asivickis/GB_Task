@@ -19,8 +19,6 @@
 		74749FA926E58DE50070D920 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74749FA726E58DE50070D920 /* LaunchScreen.storyboard */; };
 		74749FB126EADCF60070D920 /* AdminBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74749FB026EADCF60070D920 /* AdminBoard.storyboard */; };
 		74749FB326EADDA40070D920 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74749FB226EADDA40070D920 /* AdminViewController.swift */; };
-		74B4297726F6DDA700739383 /* Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B4297626F6DDA700739383 /* Draw.swift */; };
-		74B4297926F6DDD700739383 /* Draw_board.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B4297826F6DDD700739383 /* Draw_board.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +36,6 @@
 		74749FAA26E58DE50070D920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74749FB026EADCF60070D920 /* AdminBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminBoard.storyboard; sourceTree = "<group>"; };
 		74749FB226EADDA40070D920 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
-		74B4297626F6DDA700739383 /* Draw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draw.swift; sourceTree = "<group>"; };
-		74B4297826F6DDD700739383 /* Draw_board.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Draw_board.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +86,6 @@
 				74749FA526E58DE50070D920 /* Assets.xcassets */,
 				74749FA726E58DE50070D920 /* LaunchScreen.storyboard */,
 				74749FAA26E58DE50070D920 /* Info.plist */,
-				74B4297626F6DDA700739383 /* Draw.swift */,
-				74B4297826F6DDD700739383 /* Draw_board.storyboard */,
 			);
 			path = L1;
 			sourceTree = "<group>";
@@ -181,7 +175,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				74749FA926E58DE50070D920 /* LaunchScreen.storyboard in Resources */,
-				74B4297926F6DDD700739383 /* Draw_board.storyboard in Resources */,
 				74749FB126EADCF60070D920 /* AdminBoard.storyboard in Resources */,
 				744F556E26F2DF7D00ECBBF6 /* ContactBoard.storyboard in Resources */,
 				74749FA626E58DE50070D920 /* Assets.xcassets in Resources */,
@@ -197,7 +190,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74B4297726F6DDA700739383 /* Draw.swift in Sources */,
 				74749FB326EADDA40070D920 /* AdminViewController.swift in Sources */,
 				74749FA126E58DE40070D920 /* ViewController.swift in Sources */,
 				744F557326F2DFEB00ECBBF6 /* DetailedViewController.swift in Sources */,

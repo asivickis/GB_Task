@@ -71,11 +71,24 @@
         <scene sceneID="e9O-q9-Jfz">
             <objects>
                 <viewController id="a4y-1U-ymH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Wl2-PM-rNm" customClass="logo" customModule="L1" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="Wl2-PM-rNm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kuh-cp-bi3" customClass="logo" customModule="L1" customModuleProvider="target">
+                                <rect key="frame" x="20" y="108" width="374" height="685"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="k6b-ZT-sMz"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="k6b-ZT-sMz" firstAttribute="trailing" secondItem="Kuh-cp-bi3" secondAttribute="trailing" constant="20" id="BXM-gl-W87"/>
+                            <constraint firstItem="Kuh-cp-bi3" firstAttribute="leading" secondItem="k6b-ZT-sMz" secondAttribute="leading" constant="20" id="Jc1-mP-Ad4"/>
+                            <constraint firstItem="k6b-ZT-sMz" firstAttribute="bottom" secondItem="Kuh-cp-bi3" secondAttribute="bottom" constant="20" id="TML-tl-oBg"/>
+                            <constraint firstItem="Kuh-cp-bi3" firstAttribute="centerX" secondItem="Wl2-PM-rNm" secondAttribute="centerX" id="dUr-x6-8WY"/>
+                            <constraint firstItem="Kuh-cp-bi3" firstAttribute="top" secondItem="k6b-ZT-sMz" secondAttribute="top" constant="20" id="fi8-ow-vwx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tYd-uh-GyW"/>
                 </viewController>
@@ -123,6 +136,9 @@
     <resources>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="terminal" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

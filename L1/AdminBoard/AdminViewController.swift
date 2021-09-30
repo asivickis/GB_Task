@@ -44,12 +44,11 @@ class logo: UIView {
         
         guard let context = UIGraphicsGetCurrentContext() else { return }
         self.draw(context)
+        self.animate()
     }
      
     private func draw(_ context: CGContext) {
-        context.setStrokeColor(UIColor.white.cgColor)
-        //why fill color not working ?
-        context.setFillColor(UIColor.white.cgColor)
+        context.setStrokeColor(UIColor.black.cgColor)
         let starLayer = CAShapeLayer()
         let starPath = UIBezierPath()
         starPath.move(to: .init(x: 200, y: 120))
@@ -69,6 +68,16 @@ class logo: UIView {
 
     }
 
+    private func animate() {
+        UIView.animate(withDuration: 2.0, delay: 0, options: [.repeat, .autoreverse], animations: {
+            
+            self.transform = .init(scaleX: 0.2, y: 0.2)
+
+            //self.frame = CGRect(x: 120, y: 220, width: 100, height: 100)
+
+        }, completion: nil)
+        
+    }
 
 
 }
