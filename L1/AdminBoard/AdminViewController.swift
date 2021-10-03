@@ -20,6 +20,7 @@ class subAdminViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     private func showContactBoard() {
@@ -39,17 +40,19 @@ class subAdminViewController: UIViewController {
 
 class logo: UIView {
 
+    var shapeLayer: CAShapeLayer?
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
         guard let context = UIGraphicsGetCurrentContext() else { return }
         self.draw(context)
         self.animate()
+
+        
     }
      
     private func draw(_ context: CGContext) {
-        context.setStrokeColor(UIColor.black.cgColor)
-        let starLayer = CAShapeLayer()
         let starPath = UIBezierPath()
         starPath.move(to: .init(x: 200, y: 120))
         starPath.addLine(to: .init(x: 130, y: 240))
@@ -63,21 +66,42 @@ class logo: UIView {
         starPath.addLine(to: .init(x: 270, y: 240))
         starPath.close()
         starPath.stroke()
-        starLayer.path = starPath.cgPath
-        self.layer.mask = starLayer
-
-    }
-
-    private func animate() {
-        UIView.animate(withDuration: 2.0, delay: 0, options: [.repeat, .autoreverse], animations: {
-            
-            self.transform = .init(scaleX: 0.2, y: 0.2)
-
-            //self.frame = CGRect(x: 120, y: 220, width: 100, height: 100)
-
-        }, completion: nil)
+        self.addShapeLayer(path: starPath)
         
     }
 
+    private func animate() {
+        UIView.animate(withDuration: 1.0, delay: 0, options: [.repeat, .autoreverse], animations: {
+            self.transform = .init(scaleX: 0.7, y: 0.7)
+        }, completion: nil)
+        
+        let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        strokeEndAnimation.fromValue = 0
+        strokeEndAnimation.toValue = 2
+        
+        let strokeStartAnimation = CABasicAnimation(keyPath: "stokeStart")
+        strokeStartAnimation.fromValue = 0
+        strokeStartAnimation.toValue = 1
+        
+        let animationGroup = CAAnimationGroup()
+        animationGroup.animations = [strokeEndAnimation, strokeStartAnimation]
+        animationGroup.duration = 3
+        animationGroup.repeatCount = .infinity
+        
+        self.shapeLayer?.add(animationGroup, forKey: nil)
+    }
+
+    private func addShapeLayer(path: UIBezierPath) {
+        let layer = CAShapeLayer()
+        layer.path = path.cgPath
+        layer.strokeColor = UIColor.yellow.cgColor
+        layer.fillColor = nil
+        layer.strokeStart = 0
+        layer.strokeEnd = 0
+        layer.lineWidth = 6
+        layer.fillColor = UIColor.red.cgColor
+        self.layer.addSublayer(layer)
+        self.shapeLayer = layer
+    }
 
 }
