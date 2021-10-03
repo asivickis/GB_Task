@@ -79,13 +79,13 @@ class logo: UIView {
         strokeEndAnimation.fromValue = 0
         strokeEndAnimation.toValue = 2
         
-        let strokeStartAnimation = CABasicAnimation(keyPath: "stokeStart")
+        let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
         strokeStartAnimation.fromValue = 0
         strokeStartAnimation.toValue = 1
         
         let animationGroup = CAAnimationGroup()
         animationGroup.animations = [strokeEndAnimation, strokeStartAnimation]
-        animationGroup.duration = 3
+        animationGroup.duration = 5
         animationGroup.repeatCount = .infinity
         
         self.shapeLayer?.add(animationGroup, forKey: nil)
@@ -99,6 +99,8 @@ class logo: UIView {
         layer.strokeStart = 0
         layer.strokeEnd = 0
         layer.lineWidth = 6
+        layer.lineDashPattern = [20,25]
+        layer.lineCap = .round
         layer.fillColor = UIColor.red.cgColor
         self.layer.addSublayer(layer)
         self.shapeLayer = layer
