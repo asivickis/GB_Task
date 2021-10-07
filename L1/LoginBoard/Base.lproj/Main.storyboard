@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,6 +52,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSg-T6-adx">
+                                <rect key="frame" x="20" y="390" width="374" height="100"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="H91-Qo-31x"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,6 +67,7 @@
                             <constraint firstItem="sD9-eZ-Sed" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1gi-PF-V95"/>
                             <constraint firstItem="J3a-zJ-HsO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2dB-y7-0kX"/>
                             <constraint firstItem="Xzd-c1-5RO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4ML-Fm-10p"/>
+                            <constraint firstItem="WSg-T6-adx" firstAttribute="top" secondItem="Xzd-c1-5RO" secondAttribute="bottom" constant="50" id="C8E-WN-ZzU"/>
                             <constraint firstItem="PXZ-j8-pek" firstAttribute="top" secondItem="J3a-zJ-HsO" secondAttribute="bottom" constant="8" id="E93-kj-sfW"/>
                             <constraint firstItem="PXZ-j8-pek" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IGt-Dt-hZX"/>
                             <constraint firstItem="PXZ-j8-pek" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Jos-p3-EV0"/>
@@ -68,13 +77,16 @@
                             <constraint firstItem="9W8-ZL-BbH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="gF6-YX-jjB"/>
                             <constraint firstItem="qsx-pk-ZY9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n9Z-0D-Ycz"/>
                             <constraint firstItem="J3a-zJ-HsO" firstAttribute="top" secondItem="qsx-pk-ZY9" secondAttribute="bottom" constant="30" id="sAZ-kN-DTg"/>
+                            <constraint firstItem="WSg-T6-adx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="tqF-9z-KSU"/>
                             <constraint firstItem="qsx-pk-ZY9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wiz-GA-VnU"/>
                             <constraint firstItem="Xzd-c1-5RO" firstAttribute="top" secondItem="PXZ-j8-pek" secondAttribute="bottom" constant="15" id="xHG-97-RQp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WSg-T6-adx" secondAttribute="trailing" constant="20" id="ylB-FW-qkx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loginField" destination="qsx-pk-ZY9" id="BO0-gW-aMs"/>
                         <outlet property="passwordField" destination="PXZ-j8-pek" id="Hb3-Df-DYB"/>
+                        <outlet property="startView" destination="WSg-T6-adx" id="KTJ-GN-HVx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -85,6 +97,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
